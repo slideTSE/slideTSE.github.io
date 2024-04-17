@@ -130,17 +130,25 @@
 
     <li><b>s1</b>: Sample one selected from MMSpeech dataset.</li>
     <li><b>s2</b>: Sample two selected from MMSpeech dataset.</li>
+    <li><b>text1</b>: Prompt text corresponding to s1.</li>
+    <li><b>text2</b>: Prompt text corresponding to s2.</li>
     <li><b>2mix</b>: Mixture of s1 and s2.</li>
     <li><b>
         <font color=#0000FF>PTE-s1</font>
-      </b>: Given an input of mixture, processed through PTE, with cue as prompt text, the output sample.</li>
+      </b>: Given an input of mixture, processed through PTE network, with cue as prompt text one, the output sample.
+    </li>
 
-    <li><b>Baseline-Loss</b>: This model uses the InfoNCE loss to replace video-audio memory.</li>
+    <li><b>
+        <font color=#0000FF>PTE-s2</font>
+      </b>: Given an input of mixture, processed through PTE network, with cue as prompt text two, the output sample.
+    </li>
+
+    <!-- <li><b>Baseline-Loss</b>: This model uses the InfoNCE loss to replace video-audio memory.</li>
     <li><b>Baseline-G</b>: The global-scale baseline model contains a video encoder, a global style encoder, and a TTS
       module. </li>
     <li><b>Baseline-L</b>: The local-scale baseline model involves a video encoder, a video-audio memory, a local style
       encoder, and a TTS module.</li>
-    <li><b>FastSpeech 2</b>: A TTS model without video input.[1]</li>
+    <li><b>FastSpeech 2</b>: A TTS model without video input.[1]</li> -->
   </ul>
 
 
@@ -168,9 +176,8 @@
             <tr style="button-margin:0">
               <td colspan="3" style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
                 <b>
-                  <font size="large" color="blue">Set White By A One Now
-
-                  </font>
+                  <font size="large" color="blue">text1: xxx </font>
+                  <font size="large" color="blue">text2: xxx </font>
 
                 </b>
               </td>
@@ -180,12 +187,18 @@
             <tr style="button-margin:0">
               <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
 
-                <video controls class="html-video">
+                <!-- <video controls class="html-video">
 
                   <source src="video_gt/4.mp4" type="video/mp4">
-                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                  
                 </video>
-                GT
+                GT -->
+                <audio controls class="html-audio">
+                  <source src="s1/1.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+                </audio>
+                s1
+
               </td>
 
               <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
