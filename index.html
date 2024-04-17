@@ -102,8 +102,8 @@
           facilitate the generation of masks to filter out extraneous noise, while another proposal namely Text-Speech
           Recognition Network(TSR) employs contrastive learning techniques to associate blindly separated speech signals
           with semantic cues. The experimental results show the efficacy in accurately identifying the target speaker by
-          utilizing semantic cues derived from limited and unaligned text, leading to the SI-SDRi of12.16dB, SDRi
-          of12.66dB, PESQi of0.830and STOIi of0.150. We will make the dataset and source code publicly available.
+          utilizing semantic cues derived from limited and unaligned text, leading to the SI-SDRi of 12.16dB, SDRi
+          of 12.66dB, PESQi of 0.830 and STOIi of 0.150.
           <br>
         </div>
 
@@ -177,6 +177,7 @@
               <td colspan="3" style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
                 <b>
                   <font size="large" color="blue">text1: xxx </font>
+                  <br>
                   <font size="large" color="blue">text2: xxx </font>
 
                 </b>
@@ -193,23 +194,27 @@
                   
                 </video>
                 GT -->
+                s1:
                 <audio controls class="html-audio">
                   <source src="s1/1.wav" type="audio/wav">
-                  Your browser does not support the audio element.
                 </audio>
-                s1
-
               </td>
 
+              s2:
+              <audio controls class="html-audio">
+                <source src="s2/1.wav" type="audio/wav">
+              </audio>
+              </td>
+              <!-- 
               <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
 
                 <video controls class="html-video">
 
                   <source src="video_vocoder/4.mp4" type="video/mp4">
                   <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
-                </video>
+              </video>
 
-                GT (Mel + PWG)
+              GT (Mel + PWG)
 
               </td>
 
@@ -274,7 +279,7 @@
 
                 FastSpeech 2
 
-              </td>
+              </td> -->
 
 
 
