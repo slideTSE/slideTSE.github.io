@@ -1,1 +1,609 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+</head>
+
+<body>
+
+  <section id="top" class="hero is-small">
+
+    <div class="hero-head"></div>
+
+
+    <div class="hero-body">
+
+      <div class="container has-text-centered">
+
+        <div class="subtitle is-3 ">
+
+          <div style="font-size:x-large">
+
+            <div class='col text-center' style="font-size:xx-large">
+              <p>pTSE-T: Presentation Target Speaker Extraction using Unaligned Text Cues</p>
+            </div>
+
+            <div class='row text-center h5 font-weight-normal pl-0 pr-0 mb-4'>
+
+              <a><span>Ziyang Jiang,</span></a>
+              <a><span>Xinyuan Qian,</span></a>
+              <a><span>Jiahe Lei,</span></a>
+              <a><span>Zexu Pan,</span></a>
+              <a><span>Xu-cheng Yin</span></a>
+
+            </div>
+
+            <br>
+
+          </div>
+
+          <div class="">
+
+            <div class="social-icons"> </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hero-foot ">
+
+        <div class="container">
+          <hr>
+          <br>
+
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+
+            <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+            <div class="navbar-menu has-content-centered" id="navMenu">
+
+
+              <a class="navbar-item" href="#abstract">Abstract</a>
+
+              <a class="navbar-item" href="#demos">Demos</a>
+            </div>
+          </nav>
+          <br>
+
+          <hr>
+        </div>
+
+
+      </div>
+    </div>
+
+  </section>
+
+  <div class="section" id="abstract">
+
+    <div class="container">
+      <div class='col text-center'>
+        <h2 class="title is-2 has-text-centered">Abstract</h2>
+      </div>
+
+
+      <div class="markdown has-text-centered">
+
+        <div align="left" style="font-size:20px; text-align:justify">
+
+          Target Speaker Extraction(TSE) aims to extract the clean speech of the target speaker in an audio mixture,
+          thereby eliminating irrelevant background noise and speech. While prior works have explored various speaker
+          cues including pre-recorded speech, visual information(e. g., lip motions and gestures), and spatial
+          information, the acquisition and selection of such strong cues are intricate in many practical scenarios.
+          Differently, in this paper, we condition the TSE algorithms on semantic cues based on limited and unaligned
+          text content, such as some condensed points on a presentation slide, that could be useful in many scenarios
+          such as in meetings, or poster and lecture presentations. We design two different networks. Specifically, our
+          proposed Prompt Text Extractor Network(PTE) fuses audio features with content-based semantic cues to
+          facilitate the generation of masks to filter out extraneous noise, while another proposal namely Text-Speech
+          Recognition Network(TSR) employs contrastive learning techniques to associate blindly separated speech signals
+          with semantic cues. The experimental results show the efficacy in accurately identifying the target speaker by
+          utilizing semantic cues derived from limited and unaligned text, leading to the SI-SDRi of12.16dB, SDRi
+          of12.66dB, PESQi of0.830and STOIi of0.150. We will make the dataset and source code publicly available.
+          <br>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="container has-text-centered top-pad">
+
+      <a href="#top">
+
+        <i class="fa fa-arrow-up"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+  <div class="container">
+    <hr>
+  </div>
+
+  <ul>
+
+    <li><b>s1</b>: Sample one selected from MMSpeech dataset.</li>
+    <li><b>s2</b>: Sample two selected from MMSpeech dataset.</li>
+    <li><b>2mix</b>: Mixture of s1 and s2.</li>
+    <li><b>
+        <font color=#0000FF>PTE-s1</font>
+      </b>: Given an input of mixture, processed through PTE, with cue as prompt text, the output sample.</li>
+
+    <li><b>Baseline-Loss</b>: This model uses the InfoNCE loss to replace video-audio memory.</li>
+    <li><b>Baseline-G</b>: The global-scale baseline model contains a video encoder, a global style encoder, and a TTS
+      module. </li>
+    <li><b>Baseline-L</b>: The local-scale baseline model involves a video encoder, a video-audio memory, a local style
+      encoder, and a TTS module.</li>
+    <li><b>FastSpeech 2</b>: A TTS model without video input.[1]</li>
+  </ul>
+
+
+
+
+  <div class="section" id="demos">
+
+    <div class="container">
+
+      <h2 class="title is-2 has-text-centered">Demos</h2>
+
+      <div class="markdown has-text-centered">
+
+        <!-- <h1 id="single-speaker-avd" class="anchor-link"><a href="#single-speaker-avd">Single-speaker AVD</a></h1> -->
+        <table frame=void style="border:none; padding:0; margin:0">
+          <colgroup>
+            <col width="33%">
+            <col width="33%">
+            <col width="33%">
+          </colgroup>
+
+          <!-- CASE 1 -->
+
+          <tbody>
+            <tr style="button-margin:0">
+              <td colspan="3" style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+                <b>
+                  <font size="large" color="blue">Set White By A One Now
+
+                  </font>
+
+                </b>
+              </td>
+
+            </tr>
+
+            <tr style="button-margin:0">
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_gt/4.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+                GT
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_vocoder/4.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                GT (Mel + PWG)
+
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_mem/4.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                M3TTS
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_concat/4.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-Loss
+
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_g/4.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-G
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_l/4.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-L
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_pure/4.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                FastSpeech 2
+
+              </td>
+
+
+
+
+              <!-- CASE 2 -->
+            <tr style="button-margin:0">
+              <td colspan="3" style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+                <b>
+                  <font size="large" color="blue">Place Red With U Nine Now
+
+                  </font>
+
+                </b>
+              </td>
+
+            </tr>
+
+            <tr style="button-margin:0">
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_gt/3.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+                GT
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_vocoder/3.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                GT (Mel + PWG)
+
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_mem/3.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                M3TTS
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_concat/3.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-Loss
+
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_g/3.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-G
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_l/3.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-L
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_pure/3.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                FastSpeech 2
+
+              </td>
+
+
+              <!-- CASE 3 -->
+
+            <tr style="button-margin:0">
+              <td colspan="3" style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+                <b>
+                  <font size="large" color="blue">Place Blue With V One Again
+
+                  </font>
+
+                </b>
+              </td>
+
+            </tr>
+
+            <tr style="button-margin:0">
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_gt/2.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+                GT
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_vocoder/2.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                GT (Mel + PWG)
+
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_mem/2.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                M3TTS
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_concat/2.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-Loss
+
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_g/2.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-G
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_l/2.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-L
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_pure/2.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                FastSpeech 2
+
+              </td>
+
+
+
+
+              <!-- CASE 4 -->
+            <tr style="button-margin:0">
+              <td colspan="3" style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+                <b>
+                  <font size="large" color="blue">Lay White with M Two Again
+
+                  </font>
+
+                </b>
+              </td>
+
+            </tr>
+
+            <tr style="button-margin:0">
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_gt/1.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+                GT
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_vocoder/1.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                GT (Mel + PWG)
+
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_mem/1.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                M3TTS
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_concat/1.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-Loss
+
+              </td>
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_g/1.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-G
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_l/1.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                Baseline-L
+
+              </td>
+
+
+              <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
+
+                <video controls class="html-video">
+
+                  <source src="video_grid_pure/1.mp4" type="video/mp4">
+                  <!-- <p>Your browser doesn't support embedded videos, but don't worry, you can <a href="videos/chem/gt_mel/10.mp4">download it</a> and watch it with your favorite video player!</p> -->
+                </video>
+
+                FastSpeech 2
+
+              </td>
+
+
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+    <div class="container has-text-centered top-pad">
+
+      <a href="#top">
+
+        <i class="fa fa-arrow-up"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="container">
+    <hr>
+  </div>
+
+  <h2 class="title is-2 has-text-centered">References</h2>
+  <p><br>
+  <ol>
+    <li>Y. Ren, et al., "FastSpeech 2: Fast and High-Quality End-to-End Text to Speech," in <i>Proc. ICLR</i>, 2021.
+    </li>
+  </ol>
+  </p>
+  <br>
+
+
+</body>
+
+</html>
