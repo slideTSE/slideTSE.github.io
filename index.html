@@ -87,19 +87,9 @@
 
         <div align="left" style="font-size:20px; text-align:justify">
 
-          Target Speaker Extraction(TSE) aims to extract the clean speech of the target speaker in an audio mixture,
-          thereby eliminating irrelevant background noise and speech. While prior works have explored various speaker
-          cues including pre-recorded speech, visual information(e. g., lip motions and gestures), and spatial
-          information, the acquisition and selection of such strong cues are intricate in many practical scenarios.
-          Differently, in this paper, we condition the TSE algorithms on semantic cues based on limited and unaligned
-          text content, such as some condensed points on a presentation slide, that could be useful in many scenarios
-          such as in meetings, or poster and lecture presentations. We design two different networks. Specifically, our
-          proposed Prompt Text Extractor Network(PTE) fuses audio features with content-based semantic cues to
-          facilitate the generation of masks to filter out extraneous noise, while another proposal namely Text-Speech
-          Recognition Network(TSR) employs contrastive learning techniques to associate blindly separated speech signals
-          with semantic cues. The experimental results show the efficacy in accurately identifying the target speaker by
-          utilizing semantic cues derived from limited and unaligned text, leading to the SI-SDRi of 12.16dB, SDRi
-          of 12.66dB, PESQi of 0.830 and STOIi of 0.150.
+          Target Speaker Extraction (TSE) aims to extract the clean speech of the target speaker in an audio mixture, eliminating irrelevant background noise and speech. While prior work has explored various auxiliary cues including pre-recorded speech, visual information, and spatial information, the acquisition and selection of such strong cues are infeasible in many practical scenarios. 
+          Differently, in this paper, we condition the TSE algorithm on semantic cues extracted from limited and unaligned text contents, such as condensed points from a presentation slide. This method is particularly useful in scenarios like meetings, poster sessions, or lecture presentations, where acquiring other cues in real time may be challenging.
+          To this end, we design two different networks. Specifically, our proposed Text Prompt Extractor Network (TPE) fuses audio features with content-based semantic cues to facilitate time-frequency mask generation to filter out extraneous noise. The experimental results show the efficacy in accurately extracting the target speaker's speech by utilizing semantic cues derived from limited and unaligned text, resulting in SI-SDRi of 12.16 dB, SDRi of 12.66 dB, PESQi of 0.830 and STOIi of 0.150. Dataset and source code will be publicly available. 
           <br>
         </div>
 
@@ -236,13 +226,13 @@
                 </audio>
               </td>
               <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
-                <font color=#0000FF>PTE-s1</font>
+                <font color=#0000FF>TPE-s1</font>
                 <audio controls>
                   <source src="PTE-s1/1.wav" type="audio/wav">
                 </audio>
               </td>
               <td style="background-color:#FFFFFF; border:none; buttom-padding:0; margin:0">
-                <font color=#0000FF>PTE-s2</font>
+                <font color=#0000FF>TPE-s2</font>
                 <audio controls>
                   <source src="PTE-s2/1.wav" type="audio/wav">
                 </audio>
